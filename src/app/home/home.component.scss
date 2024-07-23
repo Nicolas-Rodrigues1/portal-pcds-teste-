@@ -1,0 +1,59 @@
+app-banner {
+    margin: 50px;
+}
+
+app-container {
+    width: 70%;
+    margin-bottom: 48px;
+    margin-top: 32px;
+
+    .grid-item {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 8px;
+    .radio-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 18px;
+    }
+      
+    }
+  
+    section{
+        margin-left: 3%;
+        color: #C2185B;
+    }
+
+    mat-card-title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 32px;
+      margin-top: 40px;
+      color: white;
+    }
+  
+    mat-card-actions {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+      button {
+        margin: 0 8px;
+      }
+    }
+  
+  
+    h2 {
+      font-weight: 400;
+      font-size: 22px;
+
+      margin-left: 16px;
+    }
+  
+    button {
+      img {
+        vertical-align: middle;
+      }
+    }
+  
+}

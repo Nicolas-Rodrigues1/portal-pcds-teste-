@@ -1,0 +1,85 @@
+<app-banner src="assets/imagens/pedido.png" alt="Banner monte seu pc">
+</app-banner>
+<app-container>
+    <mat-card>
+        <button mat-stroked-button (click)="logout()" color="primary">
+            <mat-icon>logout</mat-icon>
+            DESLOGAR
+        </button>
+        <form [formGroup]="homeForm">
+            <mat-card-title><h1>{{ title }}</h1></mat-card-title>
+            <section>
+                <div>
+                    <h3>Escolha as configurações</h3>
+                </div>
+            </section>
+            <mat-card-content>
+                <div class="grid-item">
+                    <div class="radio-group">
+                        <mat-label>Placa Mãe</mat-label>
+                        <mat-radio-group formControlName="placaMae">
+                            <mat-radio-button value="asus">Asus</mat-radio-button>
+                            <mat-radio-button value="gigabyte">Gigabyte</mat-radio-button>
+                            <mat-radio-button value="N/A">Não desejo levar </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="radio-group">
+                        <mat-label>Processador</mat-label>
+                        <mat-radio-group formControlName="processador">
+                            <mat-radio-button value="amd" [disabled]="homeForm.get('placaMae')?.value === 'asus'">AMD</mat-radio-button>
+                            <mat-radio-button value="intel" [disabled]="homeForm.get('placaMae')?.value === 'gigabyte'">Intel</mat-radio-button>
+                            <mat-radio-button value="N/A">Não desejo levar </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="radio-group">
+                        <mat-label>Memória Ram</mat-label>
+                        <mat-radio-group formControlName="memoriaRam">
+                            <mat-radio-button value="8gb">8gb </mat-radio-button>
+                            <mat-radio-button value="16gb">16gb</mat-radio-button>
+                            <mat-radio-button value="N/A">Não desejo levar </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="radio-group">
+                        <mat-label>HD</mat-label>
+                        <mat-radio-group formControlName="armazenamento">
+                            <mat-radio-button value="1tb">1 TB</mat-radio-button>
+                            <mat-radio-button value="500gb">500 GB</mat-radio-button>
+                            <mat-radio-button value="N/A">Não desejo levar </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="radio-group">
+                        <mat-label>Monitor</mat-label>
+                        <mat-radio-group formControlName="monitor">
+                            <mat-radio-button value="monitor">Monitor Dell</mat-radio-button>
+                            <mat-radio-button value="N/A">Não desejo levar </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="radio-group">
+                        <mat-label>Teclado</mat-label>
+                        <mat-radio-group formControlName="teclado">
+                            <mat-radio-button value="teclado">Teclado Microsoft</mat-radio-button>
+                            <mat-radio-button value="N/A">Não desejo levar </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="radio-group">
+                        <mat-label>Mouse</mat-label>
+                        <mat-radio-group formControlName="mouse">
+                            <mat-radio-button value="mouse">Mouse HP</mat-radio-button>
+                            <mat-radio-button value="N/A">Não desejo levar </mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions class="full-width">
+                <button
+                [disabled]="!opcaoSelecionada()"
+                mat-flat-button
+                color="primary"
+                (click)="realizarPedido()"
+                >
+                    {{ textoBotao }}
+                </button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</app-container>
